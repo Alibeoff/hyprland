@@ -1,0 +1,46 @@
+window {
+  background-color: transparent;
+}
+
+* {
+  font-family: "FiraCode Nerd Font";
+  color: white;
+}
+
+#scroll {
+  background: linear-gradient(to bottom, 
+    #02050D 0%, 
+    #082235 70%, 
+    #0A2C3B 90%
+  );
+  opacity: 0.85;
+  border-radius: 0 0 15px 15px;
+  padding: 0.5rem;
+  /* box-shadow: 0 8px 6px -6px rgba(246, 246, 239, 0.55); */
+}
+
+#input {
+  webkit-backdrop-filter: blur(10px) saturate(180%);
+  backdrop-filter: blur(10px) saturate(180%);
+  background-color: #030912;
+  outline: none;
+  box-shadow: none;
+  padding: 0.5rem;
+}
+
+#inner-box {
+  margin: 0.5rem;
+  border: none;
+}
+
+#entry {
+  owerflow: hidden;
+  border-radius: 0.5rem;
+}
+
+
+#entry:selected {
+  word-wrap: break-word;
+  background-color: #041726;
+  outline: none;
+}

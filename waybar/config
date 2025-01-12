@@ -1,0 +1,81 @@
+{
+	"layer": "top",
+	// Using margin-bottom with a negative value in order to reduce the space between Hyprland window and waybar
+	"margin-bottom": -5,
+	"margin-top": 5,
+	"modules-left": ["custom/wofi_power", "cpu", "network", "tray"],
+	"modules-center": ["hyprland/workspaces"],
+	"modules-right": ["hyprland/language","pulseaudio","battery", "clock"], 
+
+	"pulseaudio": {
+		"tooltip": false,
+		"scroll-step": 5,
+	  "format-source-muted": "OFF",
+    "format-source": "ON",
+		"format": "{icon} {volume}%  {format_source}",
+		"format-muted": "{icon} off  {format_source}",
+		"on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"format-icons": {
+			"default": ["", "", ""]
+		}
+	},
+	"custom/wofi_power": {
+		"format": "",
+		"tooltip": false,
+		"on-click": "/home/virs/.config/hypr/scripts/wofi_powermenu/wofi_power.sh"
+	},
+	"network": {
+		// "interface": "wlp2*", // (Optional) To force the use of this interface
+		"format-wifi": "",
+		"format-ethernet": "",
+		// "tooltip-format": "{essid} ({signalStrength}%)",
+		"tooltip": false,
+		"format-linked": "{ifname} (No IP) ",
+		"format-disconnected": "⚠",
+		"format-alt": "{ifname}: {ipaddr}/{cidr}"
+		},
+	"hyprland/language": {
+		"format": {},
+		"tooltip": false,
+		"format-en": "us",
+		"format-ru": "ru",
+		"keyboard-name": "at-translated-set-2-keyboard",
+		"on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
+  },
+  "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon} ",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+				"tooltip": false,
+        "format-alt": "{time} {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+	"tray":{
+		"icon-size":24,
+		"spacing": 2,
+	},
+    "clock": {
+        "format": " {:%H:%M}",
+        "format-alt": " {:%H:%M:%S}", 
+				"tooltip": false,
+        "interval": 1,
+    },
+    "cpu": {
+        "interval": 15,
+        "format": " {}%",
+        "max-length": 10
+    },
+    },
+    // The code following below is given in the great documentation for Waybar status bar under Useful Utilities in Hyprland wiki
+    "hyrpland/workspaces": {
+    	"format": "{icon}",
+	"on-scroll-up": "hyprctl dispatch workspace e+1",
+	"on-scroll-down": "hyprctl dispatch workspace e-1",
+	"on-click": "activate"
+	}
+}
